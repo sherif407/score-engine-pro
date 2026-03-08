@@ -1,23 +1,26 @@
-
-import { v4 as uuidv4 } from "uuid"
-
 export function createGame(players){
 
-return {
-id:uuidv4(),
-players,
-startTime:Date.now(),
-endTime:null,
-rounds:[],
-status:"playing"
-}
+  const now = new Date()
+
+  const id =
+    now.toISOString().replace(/[-:T]/g,"").slice(0,14) +
+    "-" +
+    Math.random().toString(36).substring(2,6).toUpperCase()
+
+  return {
+    id,
+    players,
+    startTime:Date.now(),
+    rounds:[],
+    status:"playing"
+  }
 }
 
 export function finishGame(game){
 
-game.endTime = Date.now()
-game.status = "completed"
-game.duration = game.endTime - game.startTime
+  game.endTime = Date.now()
+  game.duration = game.endTime - game.startTime
+  game.status = "completed"
 
-return game
+  return game
 }
