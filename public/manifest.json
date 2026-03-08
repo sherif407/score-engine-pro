@@ -1,0 +1,9 @@
+
+{
+"name":"Score Engine Pro",
+"short_name":"ScoreEngine",
+"display":"standalone",
+"start_url":"/",
+"background_color":"#ffffff",
+"theme_color":"#000000"
+}
